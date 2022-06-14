@@ -17,6 +17,7 @@ const Home = () => {
             <header>
                 <Navbar />
             </header>
+
             <main>
                 <Banner />
                 <HowItWorks />
@@ -26,6 +27,7 @@ const Home = () => {
                 <ReadingMaterials />
                 <HotTopics />
             </main>
+            
             <footer>
                 <Footer />
             </footer>
