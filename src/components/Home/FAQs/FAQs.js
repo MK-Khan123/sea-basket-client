@@ -28,42 +28,37 @@ const FAQs = () => {
 
 
     return (
-        <div>
-            <Container id='faqs' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
-                <Typography mt={12} mb={6} textTransform='uppercase' textAlign='center' fontWeight='bold' variant="h3" gutterBottom component="div">
-                    FAQs
-                </Typography>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}
-                >
-                    {
-                        faqsData.map(faq => {
-                            const { question, answer, _id } = faq;
-                            return (
-                                <Box mt={4}>
-                                    <Accordion>
-                                        <AccordionSummary
-                                            expandIcon={<ExpandMoreIcon />}
-                                            id={`${_id}`}
-                                        >
-                                            <Typography fontWeight="bold" variant="h5" gutterBottom component="div">{question}</Typography>
-                                        </AccordionSummary>
-                                        <AccordionDetails>
-                                            <Typography variant="h5" gutterBottom component="div">{answer}</Typography>
-                                        </AccordionDetails>
-                                    </Accordion>
-                                </Box>
-                            );
-                        })
-                    }
-                </Box>
-            </Container>
-        </div>
+        <Container id='faqs' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
+            <Typography mt={12} textTransform='uppercase' textAlign='center' fontWeight='bold' variant="h3" gutterBottom component="div">
+                FAQs
+            </Typography>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
+            >
+                {
+                    faqsData.map(faq => {
+                        const { question, answer, _id } = faq;
+                        return (
+                            <Box mt={4}>
+                                <Accordion>
+                                    <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`${_id}`}>
+                                        <Typography fontWeight="bold" variant="h5" gutterBottom component="div">{question}</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <Typography variant="h5" gutterBottom component="div">{answer}</Typography>
+                                    </AccordionDetails>
+                                </Accordion>
+                            </Box>
+                        );
+                    })
+                }
+            </Box>
+        </Container>
     );
 };
 
