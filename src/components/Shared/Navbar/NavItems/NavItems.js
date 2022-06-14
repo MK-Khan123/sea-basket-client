@@ -6,8 +6,7 @@ import useAuth from '../../../../hooks/useAuth';
 
 const NavItems = ({ handleCloseNavMenu }) => {
 
-    const { user, logout } = useAuth();
-    console.log(user);
+    const { user, logout } = useAuth();    
 
     return (
         <Box sx={{ flexGrow: 1, justifyContent: 'end', alignItems: 'center', display: { xs: 'none', md: 'flex' } }}>
@@ -37,22 +36,22 @@ const NavItems = ({ handleCloseNavMenu }) => {
             </Button>
             {
                 user?.email ? (
-                        <Button
-                            onClick={logout}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            LOGOUT
-                        </Button>
-                    ) : (
+                    <Button
+                        onClick={logout}
+                        sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                        LOGOUT
+                    </Button>
+                ) : (
+                    <NavLink style={{ textDecoration: 'none', color: 'white' }} to='/login'>
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
-                            <NavLink style={{ textDecoration: 'none', color: 'white' }} to='/login'>
-                                LOGIN
-                            </NavLink>
+                            LOGIN
                         </Button>
-                    )
+                    </NavLink>
+                )
             }
         </Box>
     );
