@@ -34,7 +34,7 @@ const Navbar = () => {
                     >
                         <NavLink to='/home' style={{ textDecoration: 'none', color: 'white' }}>
                             <Box sx={{ display: 'flex', jsutifyContent: 'center', alignItems: 'center' }}>
-                                <Box mr={2}><img style={{ maxWidth: '60px', maxHeight: '100px' }} src={logo} alt="" /></Box>
+                                <Box mr={2}><img style={{ maxWidth: '60px', maxHeight: '100px' }} src={logo} alt="logo" /></Box>
                                 <Box>SEA BASKET</Box>
                             </Box>
                         </NavLink>

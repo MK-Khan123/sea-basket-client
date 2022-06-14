@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink } from "react-router-dom";
+import useAuth from '../../hooks/useAuth';
 
 function Copyright(props) {
   return (
@@ -25,14 +25,22 @@ function Copyright(props) {
 const theme = createTheme();
 
 const Login = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+
+  document.title = 'Admin Login';
+
+  //Using Firebase for login
+  const { signIn } = useAuth();
+
+  //For handling Registration (Sign up)
+  // const {
+  //   register: registerSignUp,
+  //   handleSubmit: handleSubmitRegistration
+  // } = useForm();
+
+  // const registration = data => {
+  //   const { registrationEmail, registrationPassword } = data;
+  //   return registerUsingEmail(registrationEmail, registrationPassword);
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -52,8 +60,9 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box sx={{ mt: 1 }}>
             <Button
+              onClick={() => signIn("admin@seabasket.com", "admin1")}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -61,6 +70,63 @@ const Login = () => {
               Log In as an Admin
             </Button>
           </Box>
+          
+          {/* Used this piece of code to register admin@seabasket.com for the first time in Firebase
+          <Box
+            component='h5'
+            sx={{
+              fontSize: '2rem',
+              fontWeight: '500',
+              marginTop: 0,
+              marginBottom: '1.5rem'
+            }}
+          >
+            Register
+          </Box>
+          <form
+            onSubmit={handleSubmitRegistration(registration)}
+            style={{
+              border: '2px solid #DEE2E6',
+              borderRadius: '8px',
+              padding: '35px 25px'
+            }}
+          >
+            <TextField sx={{ mb: 2 }}
+              id="outlined-basic2"
+              label="Email"
+              type="email"
+              size="small"
+              fullWidth
+              InputLabelProps={{
+                shrink: true
+              }}
+              {...registerSignUp("registrationEmail", { required: true })}
+            />
+            <TextField sx={{ mb: 3 }}
+              id="outlined-password-input1"
+              type="password"
+              label="Password"
+              size="small"
+              fullWidth
+              InputLabelProps={{
+                shrink: true
+              }}
+              {...registerSignUp("registrationPassword", { required: true })}
+            />
+
+            <Button
+              size='large'
+              type="submit"
+              sx={{
+                backgroundColor: '#FFC107',
+                color: 'black',
+                '&:hover': { backgroundColor: '#FFCA2C' }
+              }}
+            >
+              Register
+            </Button>
+          </form> */}
+
           <NavLink to='/home' style={{ textDecoration: 'none' }}>
             <Button
               fullWidth
