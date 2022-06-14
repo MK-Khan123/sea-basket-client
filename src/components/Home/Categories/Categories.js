@@ -3,17 +3,17 @@ import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typograp
 
 const categoriesData = [
     {
-        id: '46sdsa',
+        _id: '46sdsa',
         image: 'https://res.cloudinary.com/dn9k2jkdd/image/upload/v1655230093/proffus-task/fish_mcfaon.jpg',
         category: "fish"
     },
     {
-        id: '46xgha',
+        _id: '46xgha',
         image: 'https://res.cloudinary.com/dn9k2jkdd/image/upload/v1655230092/proffus-task/crustaceans_jyaxny.jpg',
         category: "crustaceans"
     },
     {
-        id: '4dsa',
+        _id: '4dsa',
         image: 'https://res.cloudinary.com/dn9k2jkdd/image/upload/v1655230093/proffus-task/exotic_uwiibx.jpg',
         category: "exotic"
     }
@@ -28,11 +28,11 @@ const Categories = () => {
 
             <Grid container columnSpacing={3} rowSpacing={6} justifyContent='center'>
                 {
-                    categoriesData.map(project => {
-                        const { image, category, id } = project;
+                    categoriesData.map(categoryData => {
+                        const { image, category, _id } = categoryData;
                         return (
                             <Grid item
-                                key={id}
+                                key={_id}
                                 sx={{
                                     display: 'flex',
                                     justifyContent: 'center',
