@@ -6,7 +6,7 @@ import useAuth from '../../../../hooks/useAuth';
 
 const NavItems = ({ handleCloseNavMenu }) => {
 
-    const { user, logout } = useAuth();    
+    const { user, logout } = useAuth();
 
     return (
         <Box sx={{ flexGrow: 1, justifyContent: 'end', alignItems: 'center', display: { xs: 'none', md: 'flex' } }}>
@@ -34,6 +34,15 @@ const NavItems = ({ handleCloseNavMenu }) => {
                     CART
                 </NavLink>
             </Button>
+
+            <NavLink style={{ textDecoration: 'none', color: 'white' }} to='/edit-banner'>
+                <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                    ADMIN
+                </Button>
+            </NavLink>
             {
                 user?.email ? (
                     <Button

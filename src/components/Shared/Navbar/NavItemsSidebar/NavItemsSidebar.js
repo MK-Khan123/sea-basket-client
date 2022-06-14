@@ -57,6 +57,11 @@ const NavItemsSidebar = ({ anchorElNav, handleCloseNavMenu, handleOpenNavMenu })
                         CART
                     </MenuItem>
                 </NavLink>
+                <NavLink className='nav-link-custom-style' to='/edit-banner'>
+                    <MenuItem onClick={handleCloseNavMenu}>
+                        ADMIN
+                    </MenuItem>
+                </NavLink>
                 {
                     user?.email ? (
                         <MenuItem
