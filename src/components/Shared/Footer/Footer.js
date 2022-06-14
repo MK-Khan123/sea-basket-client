@@ -10,7 +10,7 @@ const Footer = () => {
     const logo = 'https://res.cloudinary.com/dn9k2jkdd/image/upload/v1655146702/proffus-task/fish_wsrjue.png';
 
     return (
-        <section id='footer'>
+        <Box component='section' py={4} id='footer'>
             <Container>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <img style={{ maxWidth: '7rem' }} src={logo} alt="sea basket logo" />
@@ -27,7 +27,7 @@ const Footer = () => {
                 </Box>
                 <Box sx={{ textAlign: 'center' }}>{(new Date()).getFullYear()} Copyright © Sea Basket. All Rights Reserved</Box>
             </Container>
-        </section>
+        </Box>
     );
 };
 

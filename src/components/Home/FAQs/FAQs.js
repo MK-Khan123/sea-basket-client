@@ -26,10 +26,17 @@ const FAQs = () => {
         }
     ];
 
-
     return (
         <Container id='faqs' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
-            <Typography mt={12} textTransform='uppercase' textAlign='center' fontWeight='bold' variant="h3" gutterBottom component="div">
+            <Typography
+                mt={12}
+                textTransform='uppercase'
+                textAlign='center'
+                fontWeight='bold'
+                variant="h3"
+                gutterBottom
+                component="div"
+            >
                 FAQs
             </Typography>
             <Box
@@ -45,9 +52,9 @@ const FAQs = () => {
                         const { question, answer, _id } = faq;
                         return (
                             <Box mt={4}>
-                                <Accordion>
+                                <Accordion sx={{ backgroundColor: '#E4E6EA' }}>
                                     <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`${_id}`}>
-                                        <Typography fontWeight="bold" variant="h5" gutterBottom component="div">{question}</Typography>
+                                        <Typography fontWeight='bold' variant="h5" gutterBottom component="div">{question}</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <Typography variant="h5" gutterBottom component="div">{answer}</Typography>

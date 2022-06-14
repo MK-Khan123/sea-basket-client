@@ -36,6 +36,7 @@ const ReadingMaterials = () => {
                 Have a read
             </Typography>
             <Box
+                mt={4}
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -47,12 +48,12 @@ const ReadingMaterials = () => {
                     readingMaterialData.map(readingMaterial => {
                         const { article_title, article_description, _id } = readingMaterial;
                         return (
-                            <Box key={_id} mt={4}>
+                            <Box key={_id}>
                                 <Card
                                     sx={{
                                         boxShadow: 6,
                                         borderRadius: 2,
-                                        backgroundColor: '#212428',
+                                        backgroundColor: '#E4E6EA',
                                         marginY: 2
                                     }}
                                 >
@@ -63,14 +64,10 @@ const ReadingMaterials = () => {
                                                 gutterBottom
                                                 variant="h5"
                                                 component="div"
-                                                color="#E4E6EA"
                                             >
                                                 {article_title}
                                             </Typography>
-                                            <Typography
-                                                variant="h5"
-                                                color="#878E99"
-                                            >
+                                            <Typography variant="h5">
                                                 {article_description}
                                             </Typography>
                                         </CardContent>
