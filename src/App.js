@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import './App.css';
 import EditBanner from "./components/Admin/EditBanner/EditBanner";
 import Categories from "./components/Home/Categories/Categories";
 import FAQs from "./components/Home/FAQs/FAQs";
@@ -10,7 +9,9 @@ import IntroVideo from "./components/Home/IntroVideo/IntroVideo";
 import ReadingMaterials from "./components/Home/ReadingMaterials/ReadingMaterials";
 import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
+import RequiredAuth from "./components/Shared/RequiredAuth/RequiredAuth";
 import AuthProvider from "./contexts/AuthProvider";
+import './App.css';
 
 function App() {
   return (
@@ -23,7 +24,13 @@ function App() {
 
           <Route path="/login" element={<Login />} />
 
-          <Route path="/edit-banner" element={<EditBanner />} />
+          <Route path="/edit-banner"
+            element={
+              <RequiredAuth>
+                <EditBanner />
+              </RequiredAuth>
+            }
+          />
 
           <Route path="/how-it-works" element={<HowItWorks />} />
 
