@@ -1,7 +1,7 @@
 import React from 'react';
-import './Sidebar.css';
 import { NavLink } from "react-router-dom";
 import { Box } from '@mui/material';
+import './Sidebar.css';
 
 const Sidebar = () => {
     return (
@@ -17,7 +17,7 @@ const Sidebar = () => {
                     <NavLink className='sidebar-font' to="/edit-intro-video">Edit Intro Video</NavLink>
                 </Box>
                 <Box py={1}>
-                    <NavLink className='sidebar-font' to="/addService">Add Service</NavLink>
+                    <NavLink className='sidebar-font' to="/edit-logo">Edit Logo</NavLink>
                 </Box>
                 <Box py={1}>
                     <NavLink className='sidebar-font' to="/makeAdmin">Make Admin</NavLink>

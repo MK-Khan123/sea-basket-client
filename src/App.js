@@ -5,14 +5,14 @@ import Categories from "./components/Home/Categories/Categories";
 import FAQs from "./components/Home/FAQs/FAQs";
 import Home from "./components/Home/Home";
 import HotTopics from "./components/Home/HotTopics/HotTopics";
-import IntroVideo from "./components/Home/IntroVideo/IntroVideo";
 import ReadingMaterials from "./components/Home/ReadingMaterials/ReadingMaterials";
 import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
 import RequiredAuth from "./components/Shared/RequiredAuth/RequiredAuth";
 import AuthProvider from "./contexts/AuthProvider";
-import './App.css';
 import EditVideo from "./components/Admin/EditVideo/EditVideo";
+import EditLogo from "./components/Admin/EditLogo/EditLogo";
+import './App.css';
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
             }
           />
 
-          <Route path="/edit-how-it-works" element={<EditHowItWorks />} />
+          <Route path="/edit-how-it-works" element={<EditHowItWorks />} />          
 
           <Route path="/categories" element={<Categories />} />
 
@@ -44,6 +44,8 @@ function App() {
           <Route path="/reading-materials" element={<ReadingMaterials />} />
 
           <Route path="/hot-topics" element={<HotTopics />} />
+
+          <Route path="/edit-logo" element={<EditLogo />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>
