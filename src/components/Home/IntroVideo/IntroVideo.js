@@ -1,9 +1,23 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import Preloader from '../../Shared/Preloader/Preloader';
 
 const IntroVideo = () => {
 
-    const introVideo = "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0";
+    const [introVideo, setIntroVideo] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setIsLoading(true);
+        fetch(`https://calm-hamlet-62917.herokuapp.com/introVideo`)
+            .then(res => res.json())
+            .then(data => {
+                const search = '=';
+                const splitVideoUrl = data[0]?.videoUrl.split(search);
+                setIntroVideo(splitVideoUrl);
+                setIsLoading(false);
+            });
+    }, []);    
 
     return (
         <Container id='intro-video' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
@@ -17,14 +31,21 @@ const IntroVideo = () => {
                     alignItems: 'center'
                 }}
             >
-                <iframe
-                    title="A glance at our product"
-                    width="80%"
-                    height="400"
-                    src={`${introVideo}`}>
-                </iframe>
+                {
+                    isLoading ? (
+                        <Preloader />
+                    ) : (
+                        <iframe
+                            title="A glance at our product"
+                            width="80%"
+                            height="400"
+                            src={`https://www.youtube.com/embed/${introVideo}`}
+                        >
+                        </iframe>
+                    )
+                }
             </Box>
-        </Container>
+        </Container >
     );
 };
 

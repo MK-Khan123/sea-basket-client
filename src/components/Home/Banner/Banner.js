@@ -1,12 +1,19 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 
 const Banner = () => {
-    const bannerImage = 'https://res.cloudinary.com/dn9k2jkdd/image/upload/v1655226297/proffus-task/fish-banner_saluvs.jpg';
+
+    const [bannerImage, setBannerImage] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://calm-hamlet-62917.herokuapp.com/banner`)
+            .then(res => res.json())
+            .then(data => setBannerImage(data[0]));
+    }, []);
 
     return (
         <Box sx={{
-            backgroundImage: `url(${bannerImage})`,
+            backgroundImage: `url(${bannerImage?.imageUrl})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             height: '30rem',

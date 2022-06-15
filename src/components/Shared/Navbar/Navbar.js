@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,7 +20,13 @@ const Navbar = () => {
         setAnchorElNav(null);
     };
 
-    const logo = 'https://res.cloudinary.com/dn9k2jkdd/image/upload/v1655146702/proffus-task/fish_wsrjue.png';
+    const [logo, setLogo] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://calm-hamlet-62917.herokuapp.com/logo`)
+            .then(res => res.json())
+            .then(data => setLogo(data[0]));
+    }, []);
 
     return (
         <AppBar position="static">
@@ -34,7 +40,7 @@ const Navbar = () => {
                     >
                         <NavLink to='/home' style={{ textDecoration: 'none', color: 'white' }}>
                             <Box sx={{ display: 'flex', jsutifyContent: 'center', alignItems: 'center' }}>
-                                <Box mr={2}><img style={{ maxWidth: '60px', maxHeight: '100px' }} src={logo} alt="logo" /></Box>
+                                <Box mr={2}><img style={{ maxWidth: '60px', maxHeight: '100px' }} src={logo?.imageUrl} alt="logo" /></Box>
                                 <Box>SEA BASKET</Box>
                             </Box>
                         </NavLink>
@@ -56,7 +62,7 @@ const Navbar = () => {
                         }}
                     >
                         <NavLink to='/home'>
-                            <img style={{ maxWidth: '60px', maxHeight: '100px' }} src={logo} alt="" />
+                            <img style={{ maxWidth: '60px', maxHeight: '100px' }} src={logo?.imageUrl} alt="logo" />
                         </NavLink>
                     </Typography>
 

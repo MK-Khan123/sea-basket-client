@@ -26,7 +26,6 @@ const FAQs = () => {
         <Container id='faqs' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
             <Typography
                 mt={12}
-                mb={4}
                 textTransform='uppercase'
                 textAlign='center'
                 fontWeight='bold'
@@ -52,7 +51,7 @@ const FAQs = () => {
                         faqsData?.map(faq => {
                             const { question, answer, _id } = faq;
                             return (
-                                <Box mt={4}>
+                                <Box key={_id} mt={4}>
                                     <Accordion sx={{ backgroundColor: '#E4E6EA' }}>
                                         <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`${_id}`}>
                                             <Typography fontWeight='bold' variant="h5" gutterBottom component="div">{question}</Typography>

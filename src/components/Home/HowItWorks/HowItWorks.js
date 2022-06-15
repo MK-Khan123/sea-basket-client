@@ -1,7 +1,22 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import Preloader from '../../Shared/Preloader/Preloader';
 
-const HowItWorks = () => {
+const HowItWorks = () => {    
+
+    const [content, setContent] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setIsLoading(true);
+        fetch(`https://calm-hamlet-62917.herokuapp.com/howItWorks`)
+            .then(res => res.json())
+            .then(data => {
+                setContent(data[0]?.content);
+                setIsLoading(false);
+            });
+    }, []);
+
     return (
         <Container id='how-it-works'>
             <Box
@@ -15,9 +30,15 @@ const HowItWorks = () => {
                 <Typography textTransform='uppercase' fontWeight='bold' variant="h3" gutterBottom component="div">
                     How It Works
                 </Typography>
-                <Typography variant="body1" fontSize='1.5rem' gutterBottom>
-                    Sea Basket delivers fresh sourced seafood in a few easy clicks
-                </Typography>
+                {
+                    isLoading ? (
+                        <Preloader />
+                    ) : (
+                        <Typography variant="body1" fontSize='1.5rem' gutterBottom>
+                            {content}
+                        </Typography>
+                    )
+                }
             </Box>
         </Container>
     );
