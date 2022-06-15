@@ -14,7 +14,7 @@ const IntroVideo = () => {
             .then(data => {
                 const search = '=';
                 const splitVideoUrl = data[0]?.videoUrl.split(search);
-                setIntroVideo(splitVideoUrl);
+                setIntroVideo(splitVideoUrl[1]);
                 setIsLoading(false);
             });
     }, []);    

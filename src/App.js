@@ -12,6 +12,7 @@ import NotFound from "./components/NotFound/NotFound";
 import RequiredAuth from "./components/Shared/RequiredAuth/RequiredAuth";
 import AuthProvider from "./contexts/AuthProvider";
 import './App.css';
+import EditVideo from "./components/Admin/EditVideo/EditVideo";
 
 function App() {
   return (
@@ -32,11 +33,11 @@ function App() {
             }
           />
 
-          <Route path="/how-it-works" element={<EditHowItWorks />} />
+          <Route path="/edit-how-it-works" element={<EditHowItWorks />} />
 
           <Route path="/categories" element={<Categories />} />
 
-          <Route path="/intro-video" element={<IntroVideo />} />
+          <Route path="/edit-intro-video" element={<EditVideo />} />
 
           <Route path="/faqs" element={<FAQs />} />
 

@@ -11,10 +11,10 @@ const Sidebar = () => {
                     <NavLink className='sidebar-font' to="/edit-banner">Edit Banner</NavLink>
                 </Box>
                 <Box py={1}>
-                    <NavLink className='sidebar-font' to="/how-it-works">Edit How It Works</NavLink>
+                    <NavLink className='sidebar-font' to="/edit-how-it-works">Edit How It Works</NavLink>
                 </Box>
                 <Box py={1}>
-                    <NavLink className='sidebar-font' to="/allOrderList">All Order List</NavLink>
+                    <NavLink className='sidebar-font' to="/edit-intro-video">Edit Intro Video</NavLink>
                 </Box>
                 <Box py={1}>
                     <NavLink className='sidebar-font' to="/addService">Add Service</NavLink>
