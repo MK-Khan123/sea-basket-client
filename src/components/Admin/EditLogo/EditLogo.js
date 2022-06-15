@@ -37,7 +37,7 @@ const EditLogo = () => {
                 <Grid item xs={10} mt={10}>
                     <Box>
                         <Typography variant="h4" gutterBottom component="div">
-                            Edit Logo
+                            Edit logo
                         </Typography>
                         <Typography mb={2} variant="body1" gutterBottom component="div">
                             Please enter your image url
