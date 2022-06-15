@@ -8,10 +8,10 @@ const Sidebar = () => {
         <>
             <Box className='sidebar' py={4} px={2}>
                 <Box py={1}>
-                    <NavLink className='sidebar-font' to="/editBanner">Edit Banner</NavLink>
+                    <NavLink className='sidebar-font' to="/edit-banner">Edit Banner</NavLink>
                 </Box>
                 <Box py={1}>
-                    <NavLink className='sidebar-font' to="/addReview">Add Review</NavLink>
+                    <NavLink className='sidebar-font' to="/how-it-works">Edit How It Works</NavLink>
                 </Box>
                 <Box py={1}>
                     <NavLink className='sidebar-font' to="/allOrderList">All Order List</NavLink>

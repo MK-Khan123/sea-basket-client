@@ -1,10 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import EditBanner from "./components/Admin/EditBanner/EditBanner";
+import EditHowItWorks from "./components/Admin/EditHowItWorks/EditHowItWorks";
 import Categories from "./components/Home/Categories/Categories";
 import FAQs from "./components/Home/FAQs/FAQs";
 import Home from "./components/Home/Home";
 import HotTopics from "./components/Home/HotTopics/HotTopics";
-import HowItWorks from "./components/Home/HowItWorks/HowItWorks";
 import IntroVideo from "./components/Home/IntroVideo/IntroVideo";
 import ReadingMaterials from "./components/Home/ReadingMaterials/ReadingMaterials";
 import Login from "./components/Login/Login";
@@ -32,7 +32,7 @@ function App() {
             }
           />
 
-          <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/how-it-works" element={<EditHowItWorks />} />
 
           <Route path="/categories" element={<Categories />} />
 
