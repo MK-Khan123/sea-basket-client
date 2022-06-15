@@ -51,7 +51,7 @@ const AddCategories = () => {
     }
 
     return (
-        <Container>
+        <Container id="add-categories">
             <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <Sidebar />

@@ -3,7 +3,6 @@ import EditBanner from "./components/Admin/EditBanner/EditBanner";
 import EditHowItWorks from "./components/Admin/EditHowItWorks/EditHowItWorks";
 import Home from "./components/Home/Home";
 import HotTopics from "./components/Home/HotTopics/HotTopics";
-import ReadingMaterials from "./components/Home/ReadingMaterials/ReadingMaterials";
 import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
 import RequiredAuth from "./components/Shared/RequiredAuth/RequiredAuth";
@@ -16,6 +15,7 @@ import DeleteFAQs from "./components/Admin/DeleteFAQs/DeleteFAQs";
 import DeleteReadingMaterials from "./components/Admin/DeleteReadingMaterials/DeleteReadingMaterials";
 import DeleteHotTopics from "./components/Admin/DeleteHotTopics/DeleteHotTopics";
 import AddFAQs from "./components/Admin/AddFAQs/AddFAQs";
+import AddReadingMaterials from "./components/Admin/AddReadingMaterials/AddReadingMaterials";
 import './App.css';
 
 function App() {
@@ -47,9 +47,14 @@ function App() {
 
           <Route path="/add-faqs" element={<AddFAQs />} />
 
-          <Route path="/reading-materials" element={<ReadingMaterials />} />
+          <Route path="/add-reading-materials" element={<AddReadingMaterials />} />
+
+
 
           <Route path="/hot-topics" element={<HotTopics />} />
+
+
+          
 
           <Route path="/delete-categories" element={<DeleteCategories />} />
 

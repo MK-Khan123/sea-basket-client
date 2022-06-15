@@ -9,6 +9,7 @@ import Preloader from '../../Shared/Preloader/Preloader';
 import sweetAlert from '../../Shared/SweetAlert/SweetAlert';
 
 const DeleteFAQs = () => {
+    document.title = 'Delete FAQs';
 
     const [faqsData, setFaqsData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -69,9 +70,8 @@ const DeleteFAQs = () => {
                                                     <Button
                                                         sx={{marginTop: '10px'}}
                                                         onClick={() => handleDeleteFAQ(_id)}
-                                                        size="small"
                                                         variant="contained"
-                                                        color="primary"
+                                                        color="error"
                                                     >
                                                         Delete
                                                     </Button>

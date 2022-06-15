@@ -3,34 +3,34 @@ import { useForm } from "react-hook-form";
 import sweetAlert from '../../Shared/SweetAlert/SweetAlert';
 import Sidebar from '../Sidebar/Sidebar';
 
-const AddFAQs = () => {
-    document.title = 'Add FAQs';
+const AddReadingMaterials = () => {
+    document.title = 'Add Reading Materials';
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        const faqsData = {
-            question: data.question,
-            answer: data.answer
+        const readingMaterials = {
+            article_title: data.article_title,
+            article_description: data.article_description
         };
 
-        console.log(faqsData);
+        console.log(readingMaterials);
 
-        const url = `https://calm-hamlet-62917.herokuapp.com/addFaqs`;
+        const url = `https://calm-hamlet-62917.herokuapp.com/addReadingMaterials`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(faqsData)
+            body: JSON.stringify(readingMaterials)
         })
             .then(res => res.json())
             .then(result => {
                 console.log(result);
-                sweetAlert('FAQ added successfully!', 'success', 'Please go to homepage to see the update');
+                sweetAlert('Reading Materials added successfully!', 'success', 'Please go to homepage to see the update');
             });
     }
 
     return (
-        <Container id="add-faqs">
+        <Container id="add-reading-materials">
             <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <Sidebar />
@@ -38,13 +38,13 @@ const AddFAQs = () => {
                 <Grid item xs={10} mt={10}>
                     <Box>
                         <Typography variant="h4" gutterBottom component="div">
-                            Add FAQs
+                            Add Reading Materials
                         </Typography>
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <TextField sx={{ mb: 2 }}
                                 type="text"
-                                label="Question"
+                                label="Title"
                                 size="small"
                                 multiline
                                 minRows={5}
@@ -52,16 +52,16 @@ const AddFAQs = () => {
                                 InputLabelProps={{
                                     shrink: true
                                 }}
-                                {...register("question", {
+                                {...register("article_title", {
                                     required: "This field is required",
                                     onBlur: (e) => { }
                                 })}
-                                error={!!errors.question}
-                                helperText={errors?.question ? errors.question.message : null}
+                                error={!!errors.article_title}
+                                helperText={errors?.article_title ? errors.article_title.message : null}
                             />
                             <TextField sx={{ mb: 2 }}
                                 type="text"
-                                label="Answer"
+                                label="Description"
                                 size="small"
                                 multiline
                                 minRows={5}
@@ -69,12 +69,12 @@ const AddFAQs = () => {
                                 InputLabelProps={{
                                     shrink: true
                                 }}
-                                {...register("answer", {
+                                {...register("article_description", {
                                     required: "This field is required",
                                     onBlur: (e) => { }
                                 })}
-                                error={!!errors.answer}
-                                helperText={errors?.answer ? errors.answer.message : null}
+                                error={!!errors.article_description}
+                                helperText={errors?.article_description ? errors.article_description.message : null}
                             />
                             <Button variant='contained' color='success' type='submit'>Submit</Button>
                         </form>
@@ -85,4 +85,4 @@ const AddFAQs = () => {
     );
 };
 
-export default AddFAQs;
+export default AddReadingMaterials;

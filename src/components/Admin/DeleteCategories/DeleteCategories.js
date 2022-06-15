@@ -5,6 +5,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import sweetAlert from '../../Shared/SweetAlert/SweetAlert';
 
 const DeleteCategories = () => {
+    document.title = 'Delete Categories';
 
     const [categoriesData, setCategoriesData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -80,9 +81,8 @@ const DeleteCategories = () => {
                                                         <CardActions>
                                                             <Button
                                                                 onClick={() => handleDeleteCategory(_id)}
-                                                                size="small"
                                                                 variant="contained"
-                                                                color="primary"
+                                                                color="error"
                                                             >
                                                                 Delete
                                                             </Button>
