@@ -19,7 +19,7 @@ const DeleteCategories = () => {
             });
     }, []);
 
-    const handleDeleteService = (id) => {
+    const handleDeleteCategory = (id) => {
         const url = `https://calm-hamlet-62917.herokuapp.com/deleteCategory/${id}`;
         fetch(url, {
             method: 'DELETE'
@@ -29,7 +29,7 @@ const DeleteCategories = () => {
                 console.log(result);
                 const remainingCategories = categoriesData.filter(category => category._id !== id);
                 setCategoriesData(remainingCategories);
-                sweetAlert("Service removed successfully!", 'success', "Please go to Home page to see the update");
+                sweetAlert("Category removed successfully!", 'success', "Please go to Home page to see the update");
             });
     };
 
@@ -79,7 +79,7 @@ const DeleteCategories = () => {
                                                         </CardActionArea>
                                                         <CardActions>
                                                             <Button
-                                                                onClick={() => handleDeleteService(_id)}
+                                                                onClick={() => handleDeleteCategory(_id)}
                                                                 size="small"
                                                                 variant="contained"
                                                                 color="primary"

@@ -35,6 +35,15 @@ const Sidebar = () => {
                     <NavLink className='sidebar-font' to="/delete-categories">Delete Categories</NavLink>
                 </Box>
                 <Box py={1}>
+                    <NavLink className='sidebar-font' to="/delete-faqs">Delete FAQs</NavLink>
+                </Box>
+                <Box py={1}>
+                    <NavLink className='sidebar-font' to="/delete-reading-materials">Delete Categories</NavLink>
+                </Box>
+                <Box py={1}>
+                    <NavLink className='sidebar-font' to="/delete-hot-topics">Delete Categories</NavLink>
+                </Box>
+                <Box py={1}>
                     <NavLink className='sidebar-font' to="/">Home</NavLink>
                 </Box>
             </Box>
