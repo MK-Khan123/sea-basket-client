@@ -1,35 +1,32 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box, Container } from '@mui/material';
+import Preloader from '../../Shared/Preloader/Preloader';
 
 const FAQs = () => {
 
-    const faqsData = [
-        {
-            _id: "01",
-            question: "Lorem ipsum dolor sit, amet consectetur adipisicing elit?",
-            answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
-        },
-        {
-            _id: "02",
-            question: "Lorem ipsum dolor sit, amet consectetur adipisicing elit?",
-            answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
-        },
-        {
-            _id: "03",
-            question: "Lorem ipsum dolor sit, amet consectetur adipisicing elit?",
-            answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
-        }
-    ];
+    const [faqsData, setFaqsData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setIsLoading(true);
+        fetch(`https://calm-hamlet-62917.herokuapp.com/faqs`)
+            .then(res => res.json())
+            .then(data => {
+                setFaqsData(data);
+                setIsLoading(false);
+            });
+    }, []);
 
     return (
         <Container id='faqs' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
             <Typography
                 mt={12}
+                mb={4}
                 textTransform='uppercase'
                 textAlign='center'
                 fontWeight='bold'
@@ -39,7 +36,7 @@ const FAQs = () => {
             >
                 FAQs
             </Typography>
-            <Box
+            <Box                
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -48,21 +45,26 @@ const FAQs = () => {
                 }}
             >
                 {
-                    faqsData.map(faq => {
-                        const { question, answer, _id } = faq;
-                        return (
-                            <Box mt={4}>
-                                <Accordion sx={{ backgroundColor: '#E4E6EA' }}>
-                                    <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`${_id}`}>
-                                        <Typography fontWeight='bold' variant="h5" gutterBottom component="div">{question}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <Typography variant="h5" gutterBottom component="div">{answer}</Typography>
-                                    </AccordionDetails>
-                                </Accordion>
-                            </Box>
-                        );
-                    })
+                    isLoading ? (
+                        <Preloader />
+                    ) : (
+
+                        faqsData?.map(faq => {
+                            const { question, answer, _id } = faq;
+                            return (
+                                <Box mt={4}>
+                                    <Accordion sx={{ backgroundColor: '#E4E6EA' }}>
+                                        <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`${_id}`}>
+                                            <Typography fontWeight='bold' variant="h5" gutterBottom component="div">{question}</Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography variant="h5" gutterBottom component="div">{answer}</Typography>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                </Box>
+                            );
+                        })
+                    )
                 }
             </Box>
         </Container>

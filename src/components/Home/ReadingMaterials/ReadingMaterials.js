@@ -1,26 +1,22 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Button, Card, CardActionArea, CardActions, CardContent, Container, Typography } from '@mui/material';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import Preloader from '../../Shared/Preloader/Preloader';
 
 const ReadingMaterials = () => {
 
-    const readingMaterialData = [
-        {
-            _id: "01",
-            article_title: "The right quality",
-            article_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
-        },
-        {
-            _id: "02",
-            article_title: "The right time",
-            article_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
-        },
-        {
-            _id: "03",
-            article_title: "The basis of a balanced diet",
-            article_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
-        }
-    ];
+    const [readingMaterialsData, setReadingMaterialsData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setIsLoading(true);
+        fetch(`https://calm-hamlet-62917.herokuapp.com/readingMaterials`)
+            .then(res => res.json())
+            .then(data => {
+                setReadingMaterialsData(data);
+                setIsLoading(false);
+            });
+    }, []);
 
     return (
         <Container id='have-a-read' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
@@ -45,49 +41,53 @@ const ReadingMaterials = () => {
                 }}
             >
                 {
-                    readingMaterialData.map(readingMaterial => {
-                        const { article_title, article_description, _id } = readingMaterial;
-                        return (
-                            <Box key={_id}>
-                                <Card
-                                    sx={{
-                                        boxShadow: 6,
-                                        borderRadius: 2,
-                                        backgroundColor: '#E4E6EA',
-                                        marginY: 2
-                                    }}
-                                >
-                                    <CardActionArea>
-                                        <CardContent>
-                                            <Typography
-                                                fontWeight='bold'
-                                                gutterBottom
-                                                variant="h5"
-                                                component="div"
-                                            >
-                                                {article_title}
-                                            </Typography>
-                                            <Typography variant="h5">
-                                                {article_description}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Box sx={{ width: '100%', textAlign: 'end' }}>
-                                                <Button
-                                                    variant='contained'
-                                                    endIcon={<ChevronRightRoundedIcon />}
-                                                    size="small"
-                                                    color="primary"
+                    isLoading ? (
+                        <Preloader />
+                    ) : (
+                        readingMaterialsData.map(readingMaterial => {
+                            const { article_title, article_description, _id } = readingMaterial;
+                            return (
+                                <Box key={_id}>
+                                    <Card
+                                        sx={{
+                                            boxShadow: 6,
+                                            borderRadius: 2,
+                                            backgroundColor: '#E4E6EA',
+                                            marginY: 2
+                                        }}
+                                    >
+                                        <CardActionArea>
+                                            <CardContent>
+                                                <Typography
+                                                    fontWeight='bold'
+                                                    gutterBottom
+                                                    variant="h5"
+                                                    component="div"
                                                 >
-                                                    Read More
-                                                </Button>
-                                            </Box>
-                                        </CardActions>
-                                    </CardActionArea>
-                                </Card>
-                            </Box>
-                        );
-                    })
+                                                    {article_title}
+                                                </Typography>
+                                                <Typography variant="h5">
+                                                    {article_description}
+                                                </Typography>
+                                            </CardContent>
+                                            <CardActions>
+                                                <Box sx={{ width: '100%', textAlign: 'end' }}>
+                                                    <Button
+                                                        variant='contained'
+                                                        endIcon={<ChevronRightRoundedIcon />}
+                                                        size="small"
+                                                        color="primary"
+                                                    >
+                                                        Read More
+                                                    </Button>
+                                                </Box>
+                                            </CardActions>
+                                        </CardActionArea>
+                                    </Card>
+                                </Box>
+                            );
+                        })
+                    )
                 }
             </Box>
         </Container>

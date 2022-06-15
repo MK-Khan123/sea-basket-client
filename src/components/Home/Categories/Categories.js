@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import Preloader from '../../Shared/Preloader/Preloader';
 
@@ -9,13 +9,13 @@ const Categories = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`http://localhost:5000/categories`)
+        fetch(`https://calm-hamlet-62917.herokuapp.com/categories`)
             .then(res => res.json())
             .then(data => {
                 setCategoriesData(data);
                 setIsLoading(false);
             });
-    }, [categoriesData]);
+    }, []);
 
     return (
         <Container id='categories' sx={{ paddingBottom: 5, borderBottom: '3px solid #970C0C' }}>
@@ -28,7 +28,7 @@ const Categories = () => {
                 ) : (
                     <Grid container columnSpacing={3} rowSpacing={6} justifyContent='center'>
                         {
-                            categoriesData.map(categoryData => {
+                            categoriesData?.map(categoryData => {
                                 const { image, category, _id } = categoryData;
                                 return (
                                     <Grid item
