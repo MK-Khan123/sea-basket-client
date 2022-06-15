@@ -26,7 +26,7 @@ const Categories = () => {
                 isLoading ? (
                     <Preloader />
                 ) : (
-                    <Grid container columnSpacing={3} rowSpacing={6} justifyContent='center'>
+                    <Grid container columnSpacing={3} rowSpacing={6}>
                         {
                             categoriesData?.map(categoryData => {
                                 const { image, category, _id } = categoryData;

@@ -20,10 +20,19 @@ const Sidebar = () => {
                     <NavLink className='sidebar-font' to="/edit-logo">Edit Logo</NavLink>
                 </Box>
                 <Box py={1}>
-                    <NavLink className='sidebar-font' to="/makeAdmin">Make Admin</NavLink>
+                    <NavLink className='sidebar-font' to="/add-categories">Add Categories</NavLink>
                 </Box>
                 <Box py={1}>
-                    <NavLink className='sidebar-font' to="/manageServices">Manage Services</NavLink>
+                    <NavLink className='sidebar-font' to="/add-faqs">Add FAQs</NavLink>
+                </Box>
+                <Box py={1}>
+                    <NavLink className='sidebar-font' to="/add-reading-materials">Add Reading Materials</NavLink>
+                </Box>
+                <Box py={1}>
+                    <NavLink className='sidebar-font' to="/add-hot-topics">Add Hot Topics</NavLink>
+                </Box>
+                <Box py={1}>
+                    <NavLink className='sidebar-font' to="/delete-categories">Delete Categories</NavLink>
                 </Box>
                 <Box py={1}>
                     <NavLink className='sidebar-font' to="/">Home</NavLink>
